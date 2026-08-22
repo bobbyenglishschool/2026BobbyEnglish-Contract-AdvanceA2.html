@@ -272,11 +272,11 @@
                 <p style="font-size: 11px; color: var(--text-sub); margin: 10px 0 0 0; font-weight: 500;">(依據教育部短期補習班補習服務契約書範本與桃園市最新設立及管理法規制定-2026年9月最新核定版)</p>
             </div>
 
-            <!-- 🎯 需求 2 精準變更：帶入學生中文姓名與家長中文姓名動態輸入欄位 -->
+            <!-- 🎯 1. 審閱權條款：學生姓名與家長姓名即時雙向連動區 -->
             <div class="privacy-statement">
                 <strong>【重要權益：契約審閱權】 / Contract Review Right</strong><br>
-                本定型化契約書於中華民國 <span id="reviewYearDisplay" style="font-weight: bold; color: var(--uci-blue);">115</span> 年 <span id="reviewMonthDisplay" style="font-weight: bold; color: var(--uci-blue);">8</span> 月 <span id="reviewDayDisplay" style="font-weight: bold; color: var(--uci-blue);">23</span> 日由學員 <input type="text" id="contract_student_name" name="contract_student_name" placeholder="請填學生中文姓名" style="border:none; border-bottom:1.5px solid #1b3d6d; background:transparent; outline:none; font-weight:bold; color:var(--uci-blue); width:130px; text-align:center; font-size:13.5px;" required> 及監護人 <input type="text" id="contract_parent_name" name="contract_parent_name" placeholder="請填家長中文姓名" style="border:none; border-bottom:1.5px solid #1b3d6d; background:transparent; outline:none; font-weight:bold; color:var(--uci-blue); width:130px; text-align:center; font-size:13.5px;" required> 攜回審閱（契約審閱期間至少為五日）。甲方簽章確認已充分審閱並同意條款。<br>
-                <span style="color: var(--text-sub); font-size: 11.5px; font-style: italic; font-weight: 400;">This standard contract was taken home for review by student <span id="reviewStudentEn" style="font-weight:bold;">[Student]</span> and guardian <span id="reviewParentEn" style="font-weight:bold;">[Parent]</span> on Minguo <span id="reviewYearDisplayEn">115</span>/<span id="reviewMonthDisplayEn">8</span>/<span id="reviewDayDisplayEn">23</span> (The contract review period shall be at least five days). Signature below confirms full review and acknowledgment.</span>
+                本定型化契約書於中華民國 <span id="reviewYearDisplay" style="font-weight: bold; color: var(--uci-blue);">115</span> 年 <span id="reviewMonthDisplay" style="font-weight: bold; color: var(--uci-blue);">8</span> 月 <span id="reviewDayDisplay" style="font-weight: bold; color: var(--uci-blue);">23</span> 日由學員 <input type="text" id="contract_student_name" name="contract_student_name" placeholder="請填學生中文姓名" style="border:none; border-bottom:1.5px solid #1b3d6d; background:transparent; outline:none; font-weight:bold; color:var(--uci-blue); width:130px; text-align:center; font-size:13.5px;" required oninput="updateNameDisplay()"> 及監護人 <input type="text" id="contract_parent_name" name="contract_parent_name" placeholder="請填家長中文姓名" style="border:none; border-bottom:1.5px solid #1b3d6d; background:transparent; outline:none; font-weight:bold; color:var(--uci-blue); width:130px; text-align:center; font-size:13.5px;" required oninput="updateNameDisplay()"> 攜回審閱（契約審閱期間至少為五日）。甲方簽章確認已充分審閱並同意條款。<br>
+                <span style="color: var(--text-sub); font-size: 11.5px; font-style: italic; font-weight: 400;">This standard contract was taken home for review by student <span id="reviewStudentEn" style="font-weight:bold; color:var(--uci-blue);">[Student]</span> and guardian <span id="reviewParentEn" style="font-weight:bold; color:var(--uci-blue);">[Parent]</span> on Minguo <span id="reviewYearDisplayEn">115</span>/<span id="reviewMonthDisplayEn">8</span>/<span id="reviewDayDisplayEn">23</span> (The contract review period shall be at least five days). Signature below confirms full review and acknowledgment.</span>
             </div>
 
             <div class="section-title">一、選讀班級、科目與學費核定明細 / Course & Billing Details</div>
@@ -293,6 +293,7 @@
                             </td>
                             <th><span class="zh-title">核定收費方案選擇</span><span class="en-title">Tuition Plan Option</span></th>
                             <td>
+                                <!-- 🎯 2. 方案下拉選單：連動學費/教材/雜費/總金額與第5條條文 -->
                                 <select id="discountSelector" name="discountSelector" class="select-input" onchange="calculateContractBilling()">
                                     <optgroup label="✨ 新生方案（含教材費 $3,520）">
                                         <option value="new_1.0">新生原價 ($35,060)</option>
@@ -355,6 +356,7 @@
                     1. 本班採取精緻小班制教學，實際點名上課人數上限嚴格遵守政府法令規範限制（本班招生人數上限為10人），以確保教學品質與場所公共安全。<br>
                     <span class="legal-en">1. Exquisite small-class system. The number of students per class shall strictly comply with government regulatory limitations and is strictly capped at 10 students maximum to ensure teaching quality and venue safety.</span>
                 </div>
+                <!-- 🎯 2. 第五條金額動態連動：數字 (legal_total_zh) 與中文大寫 (legal_total_words) -->
                 <div class="legal-item">
                     <strong>第五條：收費項目、金額與禁止不當收費 / Article 5: Fee Items, Grand Total, and Receipt Requirements：</strong><br>
                     1. 本期核定收費費用包含基本學費、教材講義費及當期學雜費，當期實際應繳總金額以本合約第一項動態計算扣除優惠減免後之實際金額為準（目前核定總額為新台幣 <span id="legal_total_zh" style="font-weight:bold; color:var(--soft-red);">28,048</span> 元整，大寫：新臺幣 <span id="legal_total_words" style="font-weight:bold; color:var(--uci-blue);">貳萬捌仟零肆拾捌</span> 元整）。<br>
@@ -520,43 +522,48 @@ function numberToChinese(num) {
     return result.replace(/零[拾佰仟]/g, '零').replace(/零+/g, '零').replace(/零$/, '');
 }
 
+// 🎯 1. 姓名動態連動函式：即時更新中文輸入至英文 [Student] 與 [Parent]
+function updateNameDisplay() {
+    var sVal = document.getElementById('contract_student_name').value.trim();
+    var pVal = document.getElementById('contract_parent_name').value.trim();
+    document.getElementById('reviewStudentEn').innerText = sVal !== '' ? sVal : '[Student]';
+    document.getElementById('reviewParentEn').innerText = pVal !== '' ? pVal : '[Parent]';
+}
+
+// 🎯 2. 全欄位與第5條金額連動函式
 function calculateContractBilling() {
     var selectedValue = document.getElementById('discountSelector').value;
     var parts = selectedValue.split('_');
-    var identity = parts[0];
-    var discountRatio = parseFloat(parts[1]);
+    var identity = parts[0]; // new 或 old
+    var discountRatio = parseFloat(parts[1]); // 1.0, 0.9, 0.85, 0.8
 
     var pricePerLesson = 770;
     var lessons = 38;
-    var rawTuition = pricePerLesson * lessons;
-    var rawMaterials = (identity === 'new') ? 3520 : 0;
-    var rawMisc = 60 * lessons;
+    var rawTuition = pricePerLesson * lessons; // $29,260
+    var rawMaterials = (identity === 'new') ? 3520 : 0; // 新生 $3,520，舊生 $0
+    var rawMisc = 60 * lessons; // $2,280
     
     var calculatedTuition = Math.round(rawTuition * discountRatio);
     var calculatedMaterials = Math.round(rawMaterials * discountRatio);
     var calculatedMisc = Math.round(rawMisc * discountRatio);
     var grandTotal = Math.round((rawTuition + rawMaterials + rawMisc) * discountRatio);
 
+    // 1. 更新第一區表格四欄位
     document.getElementById('td_tuition').innerText = "NT$ " + calculatedTuition.toLocaleString() + " 元";
     document.getElementById('td_materials').innerText = "NT$ " + calculatedMaterials.toLocaleString() + " 元";
     document.getElementById('td_misc').innerText = "NT$ " + calculatedMisc.toLocaleString() + " 元";
     document.getElementById('td_total').innerText = "NT$ " + grandTotal.toLocaleString() + " 元";
     
+    // 2. 更新第五條條文兩欄位 (阿拉伯數字與中文大寫)
     document.getElementById('legal_total_zh').innerText = grandTotal.toLocaleString();
     document.getElementById('legal_total_words').innerText = numberToChinese(grandTotal);
 
+    // 3. 更新隱藏表單傳遞欄位
     document.getElementById('hidden_tuition').value = calculatedTuition + " 元";
     document.getElementById('hidden_materials').value = calculatedMaterials + " 元";
     document.getElementById('hidden_misc').value = calculatedMisc + " 元";
     document.getElementById('hidden_total').value = grandTotal + " 元";
 }
-
-document.getElementById('contract_student_name').addEventListener('input', function() {
-    document.getElementById('reviewStudentEn').innerText = this.value || '[Student]';
-});
-document.getElementById('contract_parent_name').addEventListener('input', function() {
-    document.getElementById('reviewParentEn').innerText = this.value || '[Parent]';
-});
 
 function prepareSubmit(event) {
     if (event) event.preventDefault();
@@ -612,16 +619,11 @@ function prepareSubmit(event) {
         headers: { 'Content-Type': 'application/json' },
         body: JSON.stringify(payload)
     }).then(function() {
-        alert("✨ 簽署完成感謝提示：
-
-感謝家長完成《Advance A2 兒童進階美語》服務契約書之線上簽署！
-系統已將契約條款與您的電子簽章安全備份存檔，並已發送確認信給 Joy 主任！");
+        alert("✨ 簽署完成感謝提示：\n\n感謝家長完成《Advance A2 兒童進階美語》服務契約書之線上簽署！\n系統已將契約條款與您的電子簽章安全備份存檔，並已發送確認信給 Joy 主任！");
         submitBtn.innerText = "✓ 法律契約書已順暢送出";
     }).catch(function(err) {
         console.warn("GAS fetch notice:", err);
-        alert("✨ 簽署完成感謝提示：
-
-感謝家長完成《Advance A2 兒童進階美語》服務契約書之線上簽署！");
+        alert("✨ 簽署完成感謝提示：\n\n感謝家長完成《Advance A2 兒童進階美語》服務契約書之線上簽署！");
         submitBtn.innerText = "✓ 法律契約書已順暢送出";
     });
 
@@ -652,7 +654,9 @@ window.onload = function() {
         return;
     }
 
+    // 初始計算連動
     calculateContractBilling();
+    updateNameDisplay();
 };
 
 function populateContractFromParams(params) {
@@ -663,12 +667,12 @@ function populateContractFromParams(params) {
         var field = document.getElementsByName(key)[0] || document.getElementById(key);
         if (field) {
             field.value = decodeURIComponent(value);
-            if (key === 'contract_student_name') document.getElementById('reviewStudentEn').innerText = decodeURIComponent(value);
-            if (key === 'contract_parent_name') document.getElementById('reviewParentEn').innerText = decodeURIComponent(value);
         }
     });
 
     calculateContractBilling();
+    updateNameDisplay();
+
     if (params.get('auto_print') === 'true') {
         setTimeout(function() { window.print(); }, 800);
     }
