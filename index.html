@@ -2,11 +2,9 @@
 <html lang="zh-TW">
 <head>
     <meta charset="UTF-8">
-    <!-- 🎯 全載具核心天線：確保行動裝置與 A4 紙張列印排版 100% 完美自適應 -->
     <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no">
     <title>私立巴比美語短期補習班 | 短期補習服務契約書 (Advance A2)</title>
     
-    <!-- 引入專業雙語 Google Fonts 字型 -->
     <link rel="preconnect" href="https://fonts.googleapis.com">
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
     <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800&family=Noto+Sans+TC:wght@400;500;700;900&display=swap" rel="stylesheet">
@@ -17,7 +15,7 @@
             --uci-gold: #fecc07;
             --soft-red: #e74c3c;
             --card-bg: #f8fafc;
-            --border-color: #1b3d6d; /* 強制導向巴比深藍 */
+            --border-color: #1b3d6d;
             --text-main: #1e293b;
             --text-sub: #475569;
         }
@@ -90,7 +88,6 @@
             margin-bottom: 15px;
         }
 
-        /* 🔒 Aegis 核心 UI 規範 1：所有表格與內格線 100% 飽滿巴比深藍色實體化 */
         table {
             width: 100%;
             border-collapse: collapse !important;
@@ -136,7 +133,6 @@
             background-color: #fff;
         }
 
-        /* 🎯 Aegis 核心 UI 規範 5：選讀班別拆解兩行、去「班」字、100% 幾何精準居中 */
         .static-course-cell {
             font-weight: bold;
             color: var(--uci-blue);
@@ -374,7 +370,6 @@
 <body>
 
 <div class="page-container">
-    <!-- 🎯 純淨單通道後端送出，徹底消除 FormSubmit 重複發信與轉址衝突 -->
     <form id="contractForm" onsubmit="prepareSubmit(event)">
         <input type="hidden" name="_captcha" value="false">
         <input type="hidden" id="formSubject" name="_subject" value="【法律合約書回傳】Advance A2 兒童進階美語">
@@ -395,7 +390,6 @@
                 <p style="font-size: 11px; color: var(--text-sub); margin: 10px 0 0 0;">(依據教育部短期補習班補習服務契約書範本與桃園市最新設立及管理法規制定-2026年9月最新核定版)</p>
             </div>
 
-            <!-- 🎯 契約審閱確認條款 -->
             <div class="privacy-statement">
                 <strong>【重要權益：契約審閱權】 / Contract Review Right</strong><br>
                 本定型化契約書於中華民國 <span id="reviewYearDisplay" style="font-weight: bold; color: var(--uci-blue);"></span> 年 <span id="reviewMonthDisplay" style="font-weight: bold; color: var(--uci-blue);"></span> 月 <span id="reviewDayDisplay" style="font-weight: bold; color: var(--uci-blue);"></span> 日由學員及監護人攜回審閱（契約審閱期間至少為五日）。甲方簽章確認已充分審閱並同意條款。<br>
@@ -408,7 +402,6 @@
                     <tbody>
                         <tr>
                             <th><span class="zh-title">選讀核定班別</span><span class="en-title">Enrolled Course</span></th>
-                            <!-- 🎯 Aegis 核心 UI 規範 5：班別拆分為兩行，上下左右 100% 幾何精準置中，並刪除贅字「班」 -->
                             <td>
                                 <div class="static-course-cell">
                                     <span style="font-size: 14px; font-weight: 800;">Advance A2</span>
@@ -421,7 +414,6 @@
                                     <option value="1">標準常規原價方案 / Standard Plan ($35,060)</option>
                                     <option value="0.9">9折優惠方案 / 10% Off Promotion ($31,554)</option>
                                     <option value="0.85">85折優惠方案 / 15% Off Promotion ($29,801)</option>
-                                    <!-- 🎯 Aegis 核心 UI 規範 6：刪除「老朋友」字樣，統一為「✨ 8 折優惠」 -->
                                     <option value="0.8">✨ 8折優惠方案 / 20% Off Promotion ($28,048)</option>
                                 </select>
                             </td>
@@ -430,14 +422,12 @@
                             <th><span class="zh-title">(1) 學費</span><span class="en-title">Tuition Fee</span></th>
                             <td id="td_tuition" style="font-weight: 700; color: var(--uci-blue);">NT$ 29,260 元</td>
                             <th><span class="zh-title">(2) 講義教材費</span><span class="en-title">Materials Fee</span></th>
-                            <!-- 🎯 精準升級：教材費用更新為 $3,520 元 ($2,770 + $750) -->
                             <td id="td_materials" style="font-weight: 700; color: var(--uci-blue);">NT$ 3,520 元</td>
                         </tr>
                         <tr>
                             <th><span class="zh-title">(3) 當期學雜費</span><span class="en-title">School Fees</span></th>
                             <td id="td_misc" style="font-weight: 700; color: var(--uci-blue);">NT$ 2,280 元</td>
                             <th><span class="zh-title">核定繳費總金額(1)+(2)+(3)</span><span class="en-title">Grand Total (1)+(2)+(3)</span></th>
-                            <!-- 🎯 精準升級：未折總金額更新為 $35,060 元 -->
                             <td id="td_total" style="font-weight: 700; color: var(--soft-red); font-size: 14px;">NT$ 35,060 元</td>
                         </tr>
                     </tbody>
@@ -567,7 +557,6 @@ var isDrawingStaff = false;
 var hasSignedParent = false;
 var hasSignedStaff = false;
 
-// 🎯 像素級判空防呆檢測（Uint32Array）
 function isCanvasBlank(canvas) {
     var context = canvas.getContext('2d');
     var pixelBuffer = new Uint32Array(
@@ -576,7 +565,6 @@ function isCanvasBlank(canvas) {
     return !pixelBuffer.some(function(color) { return color !== 0; });
 }
 
-// 🎯 高解析度 (Retina) Canvas 校準與畫素維護
 function setupCanvas(canvas, ctx) {
     var rect = canvas.parentElement.getBoundingClientRect();
     var ratio = window.devicePixelRatio || 1;
@@ -606,7 +594,6 @@ function getPos(canvas, e) {
     };
 }
 
-// 簽名事件監聽綁定
 parentCanvas.addEventListener('mousedown', function(e) { isDrawingParent = true; hasSignedParent = true; var p = getPos(parentCanvas, e); parentCtx.beginPath(); parentCtx.moveTo(p.x, p.y); });
 parentCanvas.addEventListener('mousemove', function(e) { if(isDrawingParent) { var p = getPos(parentCanvas, e); parentCtx.lineTo(p.x, p.y); parentCtx.stroke(); } });
 window.addEventListener('mouseup', function() { isDrawingParent = false; });
@@ -633,44 +620,33 @@ function clearSig(target) {
     }
 }
 
-// =========================================================================
-// 🎯 Aegis 核心修正：遵守最高協定全項目連動算式，且 Hidden 欄位完美咬合：
-// 【應繳總金額 = Math.round((基本學費 + 原價教材費 + 當期學雜費) * 折扣率)】
-// =========================================================================
 function calculateContractBilling() {
     var discountRatio = parseFloat(document.getElementById('discountSelector').value);
     
-    // Advance A2 標準三項基礎定額 (38堂課)
     var pricePerLesson = 770;
     var lessons = 38;
     var rawTuition = pricePerLesson * lessons; // $29,260
-    var rawMaterials = 3520;                    // 🎯 精準升級 $3,520 ($2,770 + $750)
+    var rawMaterials = 3520;                    // $3,520
     var rawMisc = 60 * lessons;                 // $2,280
     
-    // 🎯 折扣連動計算：全項目皆乘上折扣率並四捨五入，確保加總 100% 咬合！
     var calculatedTuition = Math.round(rawTuition * discountRatio);
     var calculatedMaterials = Math.round(rawMaterials * discountRatio);
     var calculatedMisc = Math.round(rawMisc * discountRatio);
     
-    // 應繳實際總計金額
     var grandTotal = Math.round((rawTuition + rawMaterials + rawMisc) * discountRatio);
 
-    // 顯示於表格中
     document.getElementById('td_tuition').innerText = "NT$ " + calculatedTuition.toLocaleString() + " 元";
     document.getElementById('td_materials').innerText = "NT$ " + calculatedMaterials.toLocaleString() + " 元";
     document.getElementById('td_misc').innerText = "NT$ " + calculatedMisc.toLocaleString() + " 元";
     document.getElementById('td_total').innerText = "NT$ " + grandTotal.toLocaleString() + " 元";
     
-    // 🎯 法律條款第五條動態連動更新為實際核定折後金額！
     document.getElementById('legal_total_zh').innerText = grandTotal.toLocaleString();
 
-    // 🎯 同步至隱藏欄位傳遞給 GAS 後端！
     document.getElementById('hidden_tuition').value = calculatedTuition + " 元";
     document.getElementById('hidden_materials').value = calculatedMaterials + " 元";
     document.getElementById('hidden_misc').value = calculatedMisc + " 元";
     document.getElementById('hidden_total').value = grandTotal + " 元";
 
-    // 🎯 去身分標籤，動態修改郵件主旨標籤
     var discountText = "標準常規原價";
     if (discountRatio === 0.9) discountText = "享 9 折特惠";
     if (discountRatio === 0.85) discountText = "享 85 折特惠";
@@ -682,7 +658,6 @@ function calculateContractBilling() {
 function prepareSubmit(event) {
     event.preventDefault();
     
-    // 🎯 雙重檢測：像素級防呆 (isCanvasBlank) 與標記檢測
     if (!hasSignedParent || isCanvasBlank(parentCanvas)) {
         alert("⚠️ 智慧防呆提示：負責人 Joy 主任溫馨提醒您，請家長務必先在左側藍色方框內完成「家長親筆電子簽章」，才能送出契約書喔！");
         return false;
@@ -727,7 +702,6 @@ function prepareSubmit(event) {
 window.onload = function() {
     initCanvases();
     
-    // 🎯 審閱期攜回日期即為家長開頁當天日期
     var today = new Date();
     var minguoYear = today.getFullYear() - 1911;
     var currentMonth = today.getMonth() + 1;
